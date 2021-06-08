@@ -145,7 +145,7 @@ resource "aws_instance" "besu_nodes" {
     type = "ssh"
     user = "ec2-user"
     host = "${self.public_ip}"
-    private_key = "${file(pathexpand(var.region_details.ssh_key_path))}"
+    private_key = data.aws_secretsmanager_secret_version.palm_ssh.secret_string
   }
 
   provisioner "file" {
