@@ -1,12 +1,12 @@
 
 # which of the palm networks to use
 variable "env_type" {
-  default = "uat"
+  default = "prd"
 }
 
 # reader or validator
 variable "palm_node_type" {
-  default = "reader"   
+  default = "validator"   
 }
 
 variable "create_monitoring_node" {
@@ -18,18 +18,18 @@ variable "create_monitoring_node" {
 variable "region_details" {
   type = map(string)
   default = { 
-    region = "ap-southeast-2"
-    ssh_key = "palm"
-    ssh_key_path = "~/.ssh/palm.pem"
+    region = "us-east-1"
+    ssh_key = "palm-dev"
+    ssh_key_path = "~/.ssh/palm-node.pem"
   }
 }
 
 variable "vpc_details" {
   type = map(string)
   default = {
-    vpc_id = "vpc-123"
-    vpc_cidr = "0.0.0.0/16"
-    public_subnet = "subnet-123"
+    vpc_id = "vpc-00e08ccb640062a9c"
+    vpc_cidr = "10.0.0.0/16"
+    public_subnet = "	subnet-0b4899c566640ec81"
   }
 }
 
@@ -48,12 +48,13 @@ variable "tags" {
     project_name = "palm"
     project_group = "ops"
     team = "devops"
+    ManagedBy = "Terraform"
   }
 }
 
 variable "rpc_whitelist_cidrs" {
   type = list(string)
-  default = [] 
+  default = ["0.0.0.0/0"] 
 }
 
 variable "amzn2_base_packages" {
