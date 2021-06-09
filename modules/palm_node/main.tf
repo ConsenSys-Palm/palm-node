@@ -1,7 +1,7 @@
 
 
 locals {
-  resource_prefix = "palm-node"
+  resource_prefix = "palm-node-${var.palm_env}-${palm_node_type}"
 }
 
 data "template_file" "provision_data_volume" {
