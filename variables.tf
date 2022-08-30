@@ -12,7 +12,7 @@ variable "create_monitoring_node" {
 
 variable "region_details" {
   type = map(string)
-  default = { 
+  default = {
     region = "ap-southeast-2"
     ssh_key = "my-pem-key"
     ssh_key_path = "~/.ssh/my-pem-key.pem"
@@ -28,7 +28,7 @@ variable "vpc_details" {
   }
 }
 
-# NOTE: Palm-mainnet is not the ethereum mainnet, so you do not need to provide 5TB of space, rather 
+# NOTE: Palm-mainnet is not the ethereum mainnet, so you do not need to provide 5TB of space, rather
 # grow the volume as required https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
 variable "node_details" {
   type = map(string)
@@ -50,7 +50,7 @@ variable "tags" {
 
 variable "rpc_whitelist_cidrs" {
   type = list(string)
-  default = [] 
+  default = []
 }
 
 variable "amzn2_base_packages" {
@@ -70,13 +70,13 @@ variable "tx_node_count" {
 # Please use the most up to date release of Besu which can be found on https://github.com/hyperledger/besu/releases
 #
 variable "besu_version" {
-  default = "22.4.0"
+  default = "22.7.1"
 }
 
 # WARNING:
 # amzn2 comes with python2.7 which is deprecated and installs for python3.8+ are via amzn extras only (as at time of writing this).
 # Symlinks are not created automatically so you need to do them here
-# 
+#
 # 3.8 is not a recommended version and is just the current version as at writing this. We recommend you use the most recent version
 # that amzn2 provides. Also submit a PR to update the piece below.
 #

@@ -57,7 +57,7 @@ variable "amzn2_base_packages" {
 # WARNING:
 # amzn2 comes with python2.7 which is deprecated and installs for python3.8+ are via amzn extras only (as at time of writing this).
 # Symlinks are not created automatically so you need to do them here
-# 
+#
 # 3.8 is not a recommended version and is just the current version as at writing this, please use the most recent version
 # that amzn2 provides. Also submit a PR to update the piece below.
 #
@@ -69,5 +69,5 @@ variable "python_version" {
 # Please use the most up to date release of Besu which can be found on https://github.com/hyperledger/besu/releases
 #
 variable "besu_version" {
-  default = "22.4.0"
+  default = "22.7.1"
 }

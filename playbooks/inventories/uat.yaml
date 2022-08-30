@@ -17,7 +17,7 @@ all:
     #   besu_node_private_key_file: /etc/besu/keys/key
 
   vars:
-    besu_version: "22.4.0"
+    besu_version: "22.7.1"
     besu_env_opts: [ "-Dlog4j2.formatMsgNoLookups=True" ]
     besu_data_dir: "/data"
     besu_sync_mode: "FULL"

@@ -17,7 +17,7 @@ all:
     #   besu_node_private_key_file: /etc/besu/keys/key
 
   vars:
-    besu_version: "22.4.0"
+    besu_version: "22.7.1"
     besu_data_dir: "/data"
     besu_sync_mode: "FULL"
     besu_genesis_path: /etc/besu/genesis.json
