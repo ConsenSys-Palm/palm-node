@@ -24,5 +24,4 @@ all:
     besu_rpc_http_api: ["DEBUG","NET","WEB3","ETH","ADMIN","IBFT","TRACE"]
     besu_network: "palm"
     remote_user: "ec2-user"
-
-
+    besu_tx_pool_limit_by_account_percentage: 1
