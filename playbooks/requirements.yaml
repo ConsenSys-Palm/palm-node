@@ -1,7 +1,7 @@
 ---
 roles:
   - name: consensys.hyperledger_besu
-    version: 0.3.8
+    version: 0.3.20
   - src: undergreen.prometheus-node-exporter
     version: v1.4.0
   - src: undergreen.prometheus-exporters-common
