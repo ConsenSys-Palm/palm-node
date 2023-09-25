@@ -15,6 +15,9 @@ all:
     #   besu_host_ip: 1.2.3.4
     #   besu_permissions_nodes_config_file: /etc/besu/permissions_config.toml
     #   besu_node_private_key_file: /etc/besu/keys/key
+    #   besu_cmdline_args:
+    #     - "--miner-stop-block=99999999"                          
+    #     - "--sync-stop-block=99999999"
 
   vars:
     besu_version: "22.7.1"
@@ -26,3 +29,4 @@ all:
     besu_network: "palm"
     remote_user: "ec2-user"
     besu_tx_pool_limit_by_account_percentage: 1
+    # besu_download_url: "https://github.com/ConsenSys-Palm/palm-besu/releases/download/22.7.4/besu-22.7.4.tar.gz"
