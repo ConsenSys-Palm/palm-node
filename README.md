@@ -4,10 +4,10 @@
 Palm network is being transitioned from Besu client to Polygon Edge client. As part of the migration, it is required to configure
 a stop block in existing Besu validators so that Besu clients will stop validating blocks. 
 
-| Network | Transition Block | Transition Date | Besu Update Date  |
-|---------|------------------|-----------------|-------------------|
-| mainnet |    14191200      |   2023-10-23    | before 2023-10-22 |
-| testnet |    14223600      |   2023-10-02    | before 2023-10-01 |
+| Network | Besu Stop Block | Transition Date | Besu Update Date  |
+|---------|-----------------|-----------------|-------------------|
+| mainnet |    14191201     |   2023-10-23    | before 2023-10-22 |
+| testnet |    14223601     |   2023-10-02    | before 2023-10-01 |
 
 
 ## Update Besu Validator Nodes
@@ -23,8 +23,8 @@ all:
     1.2.3.4:
       # Set the fork block. Same block value must be set for all validators
       besu_cmdline_args:
-        - "--miner-stop-block=14191200"
-        - "--sync-stop-block=14191200"
+        - "--miner-stop-block=14191201"
+        - "--sync-stop-block=14191201"
 
   vars:
     # Override the default binary location for all nodes
@@ -44,7 +44,7 @@ After the successful run of Ansible playbook, validator nodes should be updated 
 grep "^ExecStart" /etc/systemd/system/besu.service
 
 # Command line aruments --miner-stop-block and --sync-stop-block should be appended to start command with the appropriate block number
-ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=14191200 --sync-stop-block=14191200 >> /var/log/besu/besu.log 2>&1"`
+ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=14191201 --sync-stop-block=14191201 >> /var/log/besu/besu.log 2>&1"`
 ```
 
 ## Verification
@@ -57,5 +57,5 @@ cksum /opt/besu/current/bin/besu
 
 # Verify configuration has been added to Besu service file
 grep "^ExecStart" /etc/systemd/system/besu.service
-ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=14191200 --sync-stop-block=14191200 >> /var/log/besu/besu.log 2>&1"
+ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=14191201 --sync-stop-block=14191201 >> /var/log/besu/besu.log 2>&1"
 ```
