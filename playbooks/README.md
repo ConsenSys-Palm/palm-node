@@ -22,8 +22,8 @@ all:
     1.2.3.4:
       # Set the fork block. Same block value must be set for all validators
       besu_cmdline_args:
-        - "--miner-stop-block=TBD"
-        - "--sync-stop-block=TBD"
+        - "--miner-stop-block=14286241"
+        - "--sync-stop-block=14286241"
 
   vars:
     # Override the default binary location for all nodes
@@ -38,15 +38,6 @@ cd playbooks
 ./update_nodes.sh prd 22.7.4
 ```
 
-After the successful run of Ansible playbook, validator nodes should be updated with the new binary and two command line parameters configured in Besu Systemd file.
-
-```bash
-grep "^ExecStart" /etc/systemd/system/besu.service
-
-# Command line aruments --miner-stop-block and --sync-stop-block should be appended to start command with the appropriate block number
-ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=TBD --sync-stop-block=TBD >> /var/log/besu/besu.log 2>&1"`
-```
-
 ## Verification
 Use following to verify the correct binary and configuration has been installed.
 
@@ -57,5 +48,5 @@ cksum /opt/besu/current/bin/besu
 
 # Verify configuration has been added to Besu service file
 grep "^ExecStart" /etc/systemd/system/besu.service
-ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=TBD --sync-stop-block=TBD >> /var/log/besu/besu.log 2>&1"
+ExecStart=/bin/sh -c "/opt/besu/current/bin/besu --config-file=/etc/besu/config.toml --miner-stop-block=14286241 --sync-stop-block=14286241 >> /var/log/besu/besu.log 2>&1"
 ```
